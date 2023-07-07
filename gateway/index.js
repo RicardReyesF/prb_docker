@@ -21,6 +21,10 @@ app.use('/planets',createProxyMiddleware({
     changeOrigin: true
 }))
 
+app.use('/database',createProxyMiddleware({
+    target: 'http://database:7004'
+}))
+
 
 app.listen(7000,() => {
     console.log('escuchando por el puerto 7000')
