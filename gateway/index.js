@@ -22,7 +22,8 @@ app.use('/planets',createProxyMiddleware({
 }))
 
 app.use('/database',createProxyMiddleware({
-    target: 'http://database:7004'
+    target: 'http://database:7004',
+    changeOrigin: true
 }))
 
 
