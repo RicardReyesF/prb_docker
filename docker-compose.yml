@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  gateway:
+    container_name: gateway
+    restart: always
+    build: ./gateway
+    ports:
+      - "7000:7000"
+
+  characters:
+    container_name: characters
+    restart: always
+    build: ./characters
+    ports:
+      - ":7001"
+  
+  films:
+    container_name: films
+    restart: always
+    build: ./films
+    ports:
+      - ":7002"
+  
+  planets:
+    container_name: planets
+    restart: always
+    build: ./planets
+    ports:
+      - ":7003"
+  
+  database:
+    container_name: database
+    restart: always
+    build: ./database
+    environment:
+      - MONGODB_URL=mongodb+srv://admin:admin@starwars.ikyldtq.mongodb.net/star_wars
+    ports:
+      - ":7004"
+    
